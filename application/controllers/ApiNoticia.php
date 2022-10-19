@@ -8,7 +8,7 @@ class ApiNoticia extends CI_Controller {
     public function __construct()
     {
         parent::__construct();
-
+        
         $this->load->model('ApiNoticia_model', 'ApiNoticia');
     }
 
@@ -21,7 +21,7 @@ class ApiNoticia extends CI_Controller {
         $json_post = json_decode(file_get_contents("php://input"));
 
         $obj = new stdClass();
-        if($json_post->noticia <> null)
+        if($json_post->noticia <> null AND $json_post->titulo)
         {   
             $cod = $this->ApiNoticia->criarNoticia($json_post);
             if($cod > 0)
