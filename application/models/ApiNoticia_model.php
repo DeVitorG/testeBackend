@@ -30,9 +30,26 @@ class ApiNoticia_model extends CI_Model {
         
     }
 
-    public function editarNoticia()
+    public function editarNoticia(object $argumentos)
     {
-        # code...
+        try 
+        {
+            $this->db->set('titulo_noticia', $argumentos->titulo);
+            $this->db->set('des_noticia', $argumentos->noticia);
+            $this->db->set('dta_cadastro', date('Y-m-d H:i:s'));
+            $this->db->where('id_noticia',$argumentos->cod);
+            $this->db->update('noticias');
+
+            $db_error = $this->db->error();
+
+            if (!empty($db_error['message'])) {
+                throw new Exception('Database error! Error Code [' . $db_error['code'] . '] Error: ' . $db_error['message']);
+                return FALSE;
+            }
+            return $this->db->insert_id();
+        } catch (Exception $e) {
+            return -1;
+        }
     }
 
     public function buscarNoticia()
