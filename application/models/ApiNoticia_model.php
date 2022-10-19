@@ -8,11 +8,11 @@ class ApiNoticia_model extends CI_Model {
         parent::__construct();
     }
 
-    public function criarNoticia($argumentos)
+    public function criarNoticia(object $argumentos)
     {
         try 
         {
-            $this->db->set('titulo_noticia', $argumentos->noticia);
+            $this->db->set('titulo_noticia', $argumentos->titulo);
             $this->db->set('des_noticia', $argumentos->noticia);
             $this->db->set('dta_cadastro', date('Y-m-d H:i:s'));
             $this->db->insert('noticias');
@@ -28,6 +28,21 @@ class ApiNoticia_model extends CI_Model {
             return -1;
         }
         
+    }
+
+    public function editarNoticia()
+    {
+        # code...
+    }
+
+    public function buscarNoticia()
+    {
+        # code...
+    }
+
+    public function deletarNoticia()
+    {
+        # code...
     }
 
 }
