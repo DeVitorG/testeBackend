@@ -21,7 +21,7 @@ class ApiNoticia extends CI_Controller {
     // Criação da função de criação da noticia.
     public function criar()
     {   
-        if($this->json_post->noticia <> null || $this->json_post->titulo <> null)
+        if($this->json_post->noticia <> null && $this->json_post->titulo <> null)
         {   
             $cod = $this->ApiNoticia->criarNoticia($this->json_post);
             if($cod > 0)
@@ -47,7 +47,7 @@ class ApiNoticia extends CI_Controller {
     // Criação da função de edição da noticia já cadastrada.
     public function editar()
     {
-        if($this->json_post->titulo <> null AND $this->json_post->noticia <> null AND $this->json_post->cod > 0)
+        if($this->json_post->titulo <> null && $this->json_post->noticia <> null && $this->json_post->cod > 0)
         {   
             $cod = $this->ApiNoticia->editarNoticia($this->json_post);
             if($cod > 0)
