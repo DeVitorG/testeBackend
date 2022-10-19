@@ -10,13 +10,17 @@ class ApiNoticia extends CI_Controller {
         parent::__construct();
         
         $this->load->model('ApiNoticia_model', 'ApiNoticia');
+
         $this->obj = new stdClass();
         $this->json_post = json_decode(file_get_contents("php://input"));
+        $this->json_post->titulo = isset($this->json_post->titulo) ? $this->json_post->titulo : null;
+        $this->json_post->noticia = isset($this->json_post->noticia) ? $this->json_post->noticia : null;
+        $this->json_post->cod = isset($this->json_post->cod) ? $this->json_post->cod : null;
+
         header('Access-Control-Allow-Origin: *');
         header("Access-Control-Allow-Headers: content-type");
 
     }
-
 
     // Criação da função de criação da noticia.
     public function criar()
@@ -44,6 +48,7 @@ class ApiNoticia extends CI_Controller {
         echo json_encode($this->obj);
         
     }
+    
     // Criação da função de edição da noticia já cadastrada.
     public function editar()
     {

@@ -36,7 +36,7 @@ class ApiNoticia_model extends CI_Model {
         {
             $this->db->set('titulo_noticia', $argumentos->titulo);
             $this->db->set('des_noticia', $argumentos->noticia);
-            $this->db->set('dta_cadastro', date('Y-m-d H:i:s'));
+            $this->db->set('dta_upd_noticia', date('Y-m-d H:i:s'));
             $this->db->where('id_noticia',$argumentos->cod);
             $this->db->update('noticias');
 
@@ -46,7 +46,7 @@ class ApiNoticia_model extends CI_Model {
                 throw new Exception('Database error! Error Code [' . $db_error['code'] . '] Error: ' . $db_error['message']);
                 return FALSE;
             }
-            return $this->db->insert_id();
+            return $argumentos->cod;
         } catch (Exception $e) {
             return -1;
         }
