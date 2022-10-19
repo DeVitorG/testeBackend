@@ -12,6 +12,7 @@ class ApiNoticia_model extends CI_Model {
     {
         try 
         {
+            $this->db->set('titulo_noticia', $argumentos->noticia);
             $this->db->set('des_noticia', $argumentos->noticia);
             $this->db->set('dta_cadastro', date('Y-m-d H:i:s'));
             $this->db->insert('noticias');
