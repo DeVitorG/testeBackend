@@ -2,8 +2,21 @@
 <hr>
 <h2>Configurações Iniciais</h2>
 <hr>
- 1. Acesse o arquivo application/config/database.php, onde deverá ser configurado sua conexão com o banco de dados.
+<ol>
+    <li>Acesse o arquivo application/config/database.php, onde deverá ser configurado sua conexão com o banco de dados.</li>
+    <li>Crie o DATABASE com o nome testeBackEnd.</li>
+    <li>Execute o seguinte comando php index.php migrate. Para que as tabelas sejam criadas para o teste.</li>
+<ol>
+ <h1>Dados a serem enviados</h1>
+ <hr>
 
- 2. Crie o DATABASE com o nome testeBackEnd.
+ <h3>Cadastro Notícias:</h3>
 
- 3. Execute o seguinte php index.php migrate comando para que as tabelas sejam criadas para o teste.
+ <ul>
+    <li>id_noticia `Obrigátorio`</li>
+    <li>titulo_noticia `Obrigátorio`</li>
+    <li>des_noticia` Opcional`</li>
+    <li>dta_cadastro `Obrigátorio`</li>
+    <li>dta_upd_noticia `Opcional`</li>
+ <ul>
+
