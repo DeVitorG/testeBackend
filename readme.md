@@ -4,11 +4,11 @@
 
 ## Configurações iniciais
 
-Acesse o arquivo `application/config/database.php` , onde deverá ser configurado sua conexão com o banco de dados.
+1. Acesse o arquivo `application/config/database.php` , onde deverá ser configurado sua conexão com o banco de dados.
 
-Crie o DATABASE com o nome testeBackEnd.`testeBackEnd.` .
+2. Crie o DATABASE com o nome testeBackEnd.`testeBackEnd.` .
 
-Execute o seguinte comando `php index.php migrate`. Para que as tabelas sejam criadas para o teste.
+3. Execute o seguinte comando `php index.php migrate`. Para que as tabelas sejam criadas para o teste.
 
 # Dados a serem enviado.
 
