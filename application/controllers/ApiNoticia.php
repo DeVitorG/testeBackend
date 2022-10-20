@@ -38,7 +38,7 @@ class ApiNoticia extends CI_Controller {
             $this->obj->status = 522;
             $this->obj->data = $array;
         }
-
+        //Ação de cadastrar a notícia.
         if($this->json_post->noticia <> null && $this->json_post->titulo <> null)
         {   
             $cod = $this->ApiNoticia->criarNoticia($this->json_post);
@@ -49,9 +49,9 @@ class ApiNoticia extends CI_Controller {
                 $this->obj->data = $array;
             }else
             {
-            $array['Mensagem'] = 'A notícia não foi cadastrada!'; 
-            $this->obj->status = 500;
-            $this->obj->data = $array;
+                $array['Mensagem'] = 'A notícia não foi cadastrada!'; 
+                $this->obj->status = 500;
+                $this->obj->data = $array;
             } 
         }   
         echo json_encode($this->obj);
@@ -71,7 +71,7 @@ class ApiNoticia extends CI_Controller {
             $this->obj->status = 522;
             $this->obj->data = $array;
         }
-        //Verificando se o tipo de notícia foi informado 
+        //Verificando se a descrição da notícia foi informada 
         if(empty($this->json_post->noticia)){
             $array['Mensagem'] = 'A descrição da notícia não foi definida!'; 
             $this->obj->status = 522;
@@ -95,9 +95,9 @@ class ApiNoticia extends CI_Controller {
                 $this->obj->data = $array;
             }else
             {
-            $array['Mensagem'] = 'A notícia não foi atualizada!'; 
-            $this->obj->status = 500;
-            $this->obj->data = $array;
+                $array['Mensagem'] = 'A notícia não foi atualizada!'; 
+                $this->obj->status = 500;
+                $this->obj->data = $array;
             } 
         }   
         else
@@ -132,9 +132,9 @@ class ApiNoticia extends CI_Controller {
                 $this->obj->data = $array;
             }else
             {
-            $array['Mensagem'] = 'A notícia não foi deletada!'; 
-            $this->obj->status = 500;
-            $this->obj->data = $array;
+                $array['Mensagem'] = 'A notícia não foi deletada!'; 
+                $this->obj->status = 500;
+                $this->obj->data = $array;
             } 
         }   
         else
