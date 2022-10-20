@@ -48,7 +48,7 @@ class ApiNoticia extends CI_Controller {
         echo json_encode($this->obj);
         
     }
-    
+
     // Criação da função de edição da noticia já cadastrada.
     public function editar()
     {
@@ -57,11 +57,11 @@ class ApiNoticia extends CI_Controller {
             $cod = $this->ApiNoticia->editarNoticia($this->json_post);
             if($cod > 0)
             {
-                $array['Mensagem'] = 'A notícia foi cadastrada com sucesso!'; 
+                $array['Mensagem'] = 'A notícia foi atualizada com sucesso!'; 
                 $this->obj->status = 200;
                 $this->obj->data = $array;
             }else{
-            $array['Mensagem'] = 'A notícia não foi cadastrada com sucesso!'; 
+            $array['Mensagem'] = 'A notícia não foi atualizada com sucesso!'; 
             $this->obj->status = 500;
             $this->obj->data = $array;
             } 
