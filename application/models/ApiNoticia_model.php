@@ -15,7 +15,7 @@ class ApiNoticia_model extends CI_Model {
             $this->db->set('titulo_noticia', $argumentos->titulo);
             $this->db->set('des_noticia', $argumentos->noticia);
             $this->db->set('dta_cadastro', date('Y-m-d H:i:s'));
-            $this->db->insert('noticias');
+            $this->db->insert('cad_noticias');
 
             $db_error = $this->db->error();
 
@@ -38,7 +38,7 @@ class ApiNoticia_model extends CI_Model {
             $this->db->set('des_noticia', $argumentos->noticia);
             $this->db->set('dta_upd_noticia', date('Y-m-d H:i:s'));
             $this->db->where('id_noticia',$argumentos->cod);
-            $this->db->update('noticias');
+            $this->db->update('cad_noticias');
 
             $db_error = $this->db->error();
 
@@ -52,14 +52,42 @@ class ApiNoticia_model extends CI_Model {
         }
     }
 
-    public function buscarNoticia()
+    public function buscarNoticia($argumentos)
     {
-        # code...
+        try{
+            $this->db->select('id_noticia,titulo_noticia,des_noticia');
+            $this->db->from('cad_noticias');
+            if(isset($argumentos['titulo'])){
+                $this->db->like('titulo_noticia', $argumentos['titulo'], 'both');                       
+            }
+            $resultado = $this->db->get()->result();            
+            $db_error = $this->db->error();
+            
+            if (!empty($db_error['message'])) {
+                throw new Exception('Database error! Error Code [' . $db_error['code'] . '] Error: ' . $db_error['message']);
+                return FALSE;
+            }
+            return $resultado;
+        }catch(Exception $e){
+             return array();
+       }    
     }
 
-    public function deletarNoticia()
+    public function deletarNoticia($argumentos)
     {
-        # code...
+        try {
+            $this->db->where('id_noticia', $argumentos->cod);
+            $this->db->delete('cad_noticias');
+            $db_error = $this->db->error();
+
+            if (!empty($db_error['message'])) {
+                throw new Exception('Database error! Error Code [' . $db_error['code'] . '] Error: ' . $db_error['message']);
+                return FALSE;
+            }
+            return $argumentos->cod;
+        } catch (Exception $e) {
+            return -1;
+        }
     }
 
 }
