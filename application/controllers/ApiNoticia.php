@@ -26,6 +26,19 @@ class ApiNoticia extends CI_Controller {
         $this->json_post->titulo = isset($this->json_post->titulo) ? $this->json_post->titulo : null;
         $this->json_post->noticia = isset($this->json_post->noticia) ? $this->json_post->noticia : null;
 
+        //Verificando se o título foi informado
+        if(empty($this->json_post->titulo)){
+            $array['Mensagem'] = 'O título não foi definido!'; 
+            $this->obj->status = 522;
+            $this->obj->data = $array;
+        }
+        //Verificando se o tipo de notícia foi informado 
+        if(empty($this->json_post->noticia)){
+            $array['Mensagem'] = 'A descrição da notícia não foi definida!'; 
+            $this->obj->status = 522;
+            $this->obj->data = $array;
+        }
+
         if($this->json_post->noticia <> null && $this->json_post->titulo <> null)
         {   
             $cod = $this->ApiNoticia->criarNoticia($this->json_post);
@@ -41,12 +54,6 @@ class ApiNoticia extends CI_Controller {
             $this->obj->data = $array;
             } 
         }   
-        else
-        {
-            $array['Mensagem'] = 'Não foram definidos os parâmetros necessários!'; 
-            $this->obj->status = 522;
-            $this->obj->data = $array;
-        }
         echo json_encode($this->obj);
         
     }
@@ -57,6 +64,26 @@ class ApiNoticia extends CI_Controller {
         $this->json_post->titulo = isset($this->json_post->titulo) ? $this->json_post->titulo : null;
         $this->json_post->noticia = isset($this->json_post->noticia) ? $this->json_post->noticia : null;
         $this->json_post->cod = isset($this->json_post->cod) ? $this->json_post->cod : null;
+
+        //Verificando se o título foi informado
+        if(empty($this->json_post->titulo)){
+            $array['Mensagem'] = 'O título não foi definido!'; 
+            $this->obj->status = 522;
+            $this->obj->data = $array;
+        }
+        //Verificando se o tipo de notícia foi informado 
+        if(empty($this->json_post->noticia)){
+            $array['Mensagem'] = 'A descrição da notícia não foi definida!'; 
+            $this->obj->status = 522;
+            $this->obj->data = $array;
+        }
+        //Verificando se o id da notícia foi informado 
+        if(empty($this->json_post->cod)){
+            $array['Mensagem'] = 'O código da notícia não foi definido!'; 
+            $this->obj->status = 522;
+            $this->obj->data = $array;
+        }
+
 
         if($this->json_post->titulo <> null && $this->json_post->noticia <> null && $this->json_post->cod > 0)
         {   
