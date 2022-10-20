@@ -76,3 +76,11 @@ contributors to the CodeIgniter project and you, the CodeIgniter user.
 	"noticia": "Digite aqui a descrição da notícia"
 }
 ```
+
+```JSON
+{
+ "name": "Martin",
+ "bornOn": "1957-01-05",
+ "bornIn": "http://www.scotland.org#"
+}
+```
