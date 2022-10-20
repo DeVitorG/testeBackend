@@ -33,7 +33,8 @@ class ApiNoticia extends CI_Controller {
                 $array['Mensagem'] = 'A notícia foi cadastrada com sucesso!'; 
                 $this->obj->status = 200;
                 $this->obj->data = $array;
-            }else{
+            }else
+            {
             $array['Mensagem'] = 'A notícia não foi cadastrada com sucesso!'; 
             $this->obj->status = 500;
             $this->obj->data = $array;
@@ -60,7 +61,8 @@ class ApiNoticia extends CI_Controller {
                 $array['Mensagem'] = 'A notícia foi atualizada com sucesso!'; 
                 $this->obj->status = 200;
                 $this->obj->data = $array;
-            }else{
+            }else
+            {
             $array['Mensagem'] = 'A notícia não foi atualizada com sucesso!'; 
             $this->obj->status = 500;
             $this->obj->data = $array;
