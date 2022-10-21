@@ -58,7 +58,7 @@
 
 
 * GET /ApiNoticia/busca/?titulo=`Retorna as noticias cadastradas caso pesquise sem nenhum filtro na rota, caso deseje filtrar utilizando o "titulo" descrever na rota o comando informado na mesma,e após o  "titulo" a sua busca`
-# Teste feito utilizando Codeigniter 3 e Mysql 
+# Teste feito utilizando Codeigniter 3,HTML5, Javascript e Mysql 
 
 
 
