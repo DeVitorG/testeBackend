@@ -52,9 +52,7 @@
 
 ```
 {
-	"titulo": "Campo escolhido para alterar o titulo",
-	"noticia": "Campo escolhido para alterar a notícia",
-	"cod": "id_noticia que deseja alterar"
+	"cod": "id_noticia que deseja deletar"
 }
 
 ```
