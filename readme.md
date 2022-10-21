@@ -37,7 +37,7 @@
 }
 
 ```
-* PUT /ApiNoticia/editar/{cod}  `Rota de alteração das notícias. OBS: necessário informar o id`
+* PUT /ApiNoticia/editar/{cod}  `Rota de alteração das notícias. OBS: necessário informar o "id_noticia" na rota`
 
 ```
 {
@@ -47,7 +47,7 @@
 
 ```
 
-* DELETE /ApiNoticia/deletar/  `Rota de delete das notícias. OBS: necessário informar o id`
+* DELETE /ApiNoticia/deletar/  `Rota de delete das notícias. OBS: necessário informar o "id_noticia" na rota`
 
 ```
 {
@@ -59,7 +59,7 @@
 * GET /ApiNoticia/buscaCod/{cod} `Retorna as noticias cadastradas caso pesquise sem nenhum filtro na rota, caso deseje filtrar pode utilizar a rota, e após o  "titulo" `
 
 
-* GET /ApiNoticia/busca/`Retorna as noticias cadastradas caso pesquise sem nenhum filtro, caso deseje filtrar colocar na rota o `id_noticia` que você deseja buscar`
+* GET /ApiNoticia/busca/`Retorna as noticias cadastradas caso pesquise sem nenhum filtro, caso deseje filtrar colocar na rota o "id_noticia" que você deseja buscar`
 
 ```
 
