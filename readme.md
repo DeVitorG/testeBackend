@@ -6,7 +6,7 @@
 
 1. Acesse o arquivo `application/config/database.php` , onde deverá ser configurado sua conexão com o banco de dados.
 
-2. Crie o DATABASE com o nome testeBackEnd.`testeBackEnd.` .
+2. Crie o DATABASE com o nome `testeBackEnd.` .
 
 3. Execute o seguinte comando `php index.php migrate`. Para que as tabelas sejam criadas para o teste.
 
@@ -57,12 +57,14 @@
 
 ```
 
-* GET /ApiNoticia/listar/ `Retorna as noticias cadastradas caso pesquise sem nenhum dos 2 filtros,caso deseje filtrar pode utilizar os seguintes campos "id_noticia" ou "titulo" `
+* GET /ApiNoticia/buscaCod/path params(cod) `Retorna as noticias cadastradas caso pesquise sem nenhum filtro na rota, caso deseje filtrar pode utilizar a rota, e após o  "titulo" `
+
+
+* GET /ApiNoticia/busca/query params `Retorna as noticias cadastradas caso pesquise sem nenhum filtro, caso deseje filtrar colocar na rota o `id_noticia` que você deseja buscar`
 
 ```
 
 {
-	"id_noticia": "Caso deseje filtrar com o id da noticia preencher este campo",
 	"titulo": "Caso deseje filtrar com o titulo da noticia preencher este campo"
 }
 
