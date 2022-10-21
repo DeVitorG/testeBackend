@@ -55,6 +55,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		padding: 14px 15px 10px 15px;
 	}
 
+	h5{
+		padding-left: 500px;
+		font-size: 15px;
+	}
+
 	code {
 		font-family: Consolas, Monaco, Courier New, Courier, monospace;
 		font-size: 12px;
@@ -102,6 +107,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <body>
 <div id="container">
 	<h1>Cadastro de notícia</h1>
+	<h5>Os campos que possuem o * são obrigatórios o preenchimento!</h5>
 <div id="body">
 	<div id="body-input-titulo">
 		<label>Título da notícia:*</label>
