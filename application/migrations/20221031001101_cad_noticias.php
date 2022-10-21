@@ -27,7 +27,7 @@ class Migration_cad_noticias extends CI_Migration {
         $this->dbforge->add_key('id_noticia', TRUE);
         $this->dbforge->create_table('cad_noticias');
     }
-
+    //função para dropar a tabela
     public function down()
     {
         $this->dbforge->drop_table('cad_noticias');

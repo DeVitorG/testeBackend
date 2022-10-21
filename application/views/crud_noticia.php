@@ -188,7 +188,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </body>
 <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 <script>
-
+	//As funções a seguir consomem a api criada na view apartir da rota.
 	function criar(){
 			$.ajax({
 			type: "POST",

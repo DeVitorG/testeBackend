@@ -8,6 +8,7 @@ class ApiNoticia_model extends CI_Model {
         parent::__construct();
     }
 
+    //query que realiza o insert da noticia.
     public function criarNoticia(object $argumentos)
     {
         try 
@@ -29,7 +30,7 @@ class ApiNoticia_model extends CI_Model {
         }
         
     }
-
+    //query que realiza o update da noticia.
     public function editarNoticia(object $argumentos, $cod)
     {
         try 
@@ -52,6 +53,7 @@ class ApiNoticia_model extends CI_Model {
         }
     }
 
+    //query que realiza o select apenas utilizando o titulo da noticia.
     public function buscarNoticia($argumentos)
     {
         try{
@@ -73,6 +75,7 @@ class ApiNoticia_model extends CI_Model {
        }    
     }
 
+    //query que realiza o select apenas utilizando o cod da noticia.
     public function buscarNoticiaCod($cod)
     {
         try{
@@ -94,6 +97,7 @@ class ApiNoticia_model extends CI_Model {
        }    
     }
 
+    //query que realiza o delete da noticia.
     public function deletarNoticia($argumentos)
     {
         try {
