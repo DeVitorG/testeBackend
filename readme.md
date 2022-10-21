@@ -57,7 +57,7 @@
 
 ```
 
-* GET /ApiNoticia/listar/ `Retorna as noticias cadastradas,caso deseje filtrar pode utilizar os seguintes campos "id_noticia" ou "titulo" `
+* GET /ApiNoticia/listar/ `Retorna as noticias cadastradas caso pesquise sem nenhum dos 2 filtros,caso deseje filtrar pode utilizar os seguintes campos "id_noticia" ou "titulo" `
 
 ```
 
