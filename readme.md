@@ -54,18 +54,10 @@
 
 ```
 
-* GET /ApiNoticia/buscaCod/{cod} `Retorna as noticias cadastradas caso pesquise sem nenhum filtro na rota, caso deseje filtrar pode utilizar a rota, e após o  "titulo" `
+* GET /ApiNoticia/buscaCod/{cod} `Retorna as noticias cadastradas caso pesquise sem nenhum filtro, caso deseje filtrar colocar na rota o "id_noticia" que você deseja buscar`
 
 
-* GET /ApiNoticia/busca/`Retorna as noticias cadastradas caso pesquise sem nenhum filtro, caso deseje filtrar colocar na rota o "id_noticia" que você deseja buscar`
-
-```
-
-{
-	"titulo": "Caso deseje filtrar com o titulo da noticia preencher este campo"
-}
-
-```
+* GET /ApiNoticia/busca/?titulo=`Retorna as noticias cadastradas caso pesquise sem nenhum filtro na rota, caso deseje filtrar utilizando o "titulo" descrever na rota o comando informado na mesma,e após o  "titulo" a sua busca`
 # Teste feito utilizando Codeigniter 3 e Mysql 
 
 
