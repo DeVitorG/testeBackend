@@ -112,8 +112,14 @@ class ApiNoticia extends CI_Controller {
     public function busca()
     {
         $resultado = $this->ApiNoticia->buscarNoticia($_GET);
+        if(count($resultado) > 0 ){
         $this->obj->status = 200;
         $this->obj->data = $resultado;
+        }else{
+            $array['Mensagem'] = 'Notícia não encontrada!'; 
+            $this->obj->status = 404;
+            $this->obj->data = $array;
+        }
         echo json_encode($this->obj);
 
     }
@@ -121,8 +127,14 @@ class ApiNoticia extends CI_Controller {
     public function buscaCod($cod = 0)
     {
         $resultado = $this->ApiNoticia->buscarNoticiaCod($cod);
-        $this->obj->status = 200;
-        $this->obj->data = $resultado;
+        if(count($resultado) > 0 ){
+            $this->obj->status = 200;
+            $this->obj->data = $resultado;
+        }else{
+            $array['Mensagem'] = 'Notícia não encontrada!'; 
+            $this->obj->status = 404;
+            $this->obj->data = $array;
+        }
         echo json_encode($this->obj);
 
     }
