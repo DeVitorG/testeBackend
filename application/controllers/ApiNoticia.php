@@ -59,11 +59,11 @@ class ApiNoticia extends CI_Controller {
     }
 
     // Criação da função de edição da noticia já cadastrada.
-    public function editar()
+    public function editar($cod)
     {
+        if($cod > 0){
         $this->json_post->titulo = isset($this->json_post->titulo) ? $this->json_post->titulo : null;
         $this->json_post->noticia = isset($this->json_post->noticia) ? $this->json_post->noticia : null;
-        $this->json_post->cod = isset($this->json_post->cod) ? $this->json_post->cod : null;
 
         //Verificando se o título foi informado
         if(empty($this->json_post->titulo)){
@@ -77,18 +77,11 @@ class ApiNoticia extends CI_Controller {
             $this->obj->status = 522;
             $this->obj->data = $array;
         }
-        //Verificando se o id da notícia foi informado 
-        if(empty($this->json_post->cod)){
-            $array['Mensagem'] = 'O código da notícia não foi definido!'; 
-            $this->obj->status = 522;
-            $this->obj->data = $array;
-        }
 
-
-        if($this->json_post->titulo <> null && $this->json_post->noticia <> null && $this->json_post->cod > 0)
+        if($this->json_post->titulo <> null && $this->json_post->noticia <> null)
         {   
-            $cod = $this->ApiNoticia->editarNoticia($this->json_post);
-            if($cod > 0)
+            $codReturn = $this->ApiNoticia->editarNoticia($this->json_post, $cod);
+            if($codReturn > 0)
             {
                 $array['Mensagem'] = 'A notícia foi atualizada com sucesso!'; 
                 $this->obj->status = 201;
@@ -106,12 +99,28 @@ class ApiNoticia extends CI_Controller {
             $this->obj->status = 522;
             $this->obj->data = $array;
         }
-        echo json_encode($this->obj);
+    }else
+    {
+            $array['Mensagem'] = 'Não foram definidos os parâmetros necessários!'; 
+            $this->obj->status = 522;
+            $this->obj->data = $array;
     }
-    // Criação da função da lista de notícias já cadastradas.
-    public function listar()
+    echo json_encode($this->obj);
+
+    }
+    // Criação da função da lista de notícias já cadastradas filtrando o titulo.
+    public function busca()
     {
         $resultado = $this->ApiNoticia->buscarNoticia($_GET);
+        $this->obj->status = 200;
+        $this->obj->data = $resultado;
+        echo json_encode($this->obj);
+
+    }
+    // Criação da função da lista de notícias já cadastradas filtrando o id_noticia.
+    public function buscaCod($cod = 0)
+    {
+        $resultado = $this->ApiNoticia->buscarNoticiaCod($cod);
         $this->obj->status = 200;
         $this->obj->data = $resultado;
         echo json_encode($this->obj);

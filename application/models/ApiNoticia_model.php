@@ -30,14 +30,14 @@ class ApiNoticia_model extends CI_Model {
         
     }
 
-    public function editarNoticia(object $argumentos)
+    public function editarNoticia(object $argumentos, $cod)
     {
         try 
         {
             $this->db->set('titulo_noticia', $argumentos->titulo);
             $this->db->set('des_noticia', $argumentos->noticia);
             $this->db->set('dta_upd_noticia', date('Y-m-d H:i:s'));
-            $this->db->where('id_noticia',$argumentos->cod);
+            $this->db->where('id_noticia',$cod);
             $this->db->update('cad_noticias');
 
             $db_error = $this->db->error();
@@ -46,7 +46,7 @@ class ApiNoticia_model extends CI_Model {
                 throw new Exception('Database error! Error Code [' . $db_error['code'] . '] Error: ' . $db_error['message']);
                 return FALSE;
             }
-            return $argumentos->cod;
+            return $cod;
         } catch (Exception $e) {
             return -1;
         }
@@ -59,6 +59,27 @@ class ApiNoticia_model extends CI_Model {
             $this->db->from('cad_noticias');
             if(isset($argumentos['titulo'])){
                 $this->db->like('titulo_noticia', $argumentos['titulo'], 'both');                       
+            }
+            $resultado = $this->db->get()->result();            
+            $db_error = $this->db->error();
+            
+            if (!empty($db_error['message'])) {
+                throw new Exception('Database error! Error Code [' . $db_error['code'] . '] Error: ' . $db_error['message']);
+                return FALSE;
+            }
+            return $resultado;
+        }catch(Exception $e){
+             return array();
+       }    
+    }
+
+    public function buscarNoticiaCod($cod)
+    {
+        try{
+            $this->db->select('id_noticia,titulo_noticia,des_noticia');
+            $this->db->from('cad_noticias');
+            if(isset($cod) && $cod > 0){
+                $this->db->where('id_noticia', $cod);                       
             }
             $resultado = $this->db->get()->result();            
             $db_error = $this->db->error();
