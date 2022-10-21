@@ -3,18 +3,19 @@
  
 
 ## Configurações iniciais
+1. Para os testes o nome da pasta principal do código deve ser `testeBackend`
 
-1. Acesse o arquivo `application/config/database.php` , onde deverá ser configurado sua conexão com o banco de dados.
+2. Acesse o arquivo `application/config/database.php` , onde deverá ser configurado sua conexão com o banco de dados.
 
-2. Crie o DATABASE com o nome `testeBackEnd.` .
+3. Crie o DATABASE com o nome `testeBackEnd.`
 
-3. Execute o seguinte comando `php index.php migrate`. Para que as tabelas sejam criadas para o teste.
+4. Execute o seguinte comando `php index.php migrate`. Para que as tabelas sejam criadas para o teste.
 
 # View.
 
 ### CRUD Notícias
 
-* Será uma view disponível para consumir as rotas.
+* Será uma view disponível para consumir as rotas, onde poderá ser acessada em `http://localhost/testeBackend/`.
 
 
 # Controllers
@@ -45,7 +46,7 @@
 
 ```
 
-* DELETE /ApiNoticia/deletar/  `Rota de delete das notícias. OBS: necessário informar o "id_noticia" na rota`
+* DELETE /ApiNoticia/deletar/  `Rota de delete das notícias. OBS: necessário informar o "id_noticia"`
 
 ```
 {
@@ -54,10 +55,10 @@
 
 ```
 
-* GET /ApiNoticia/buscaCod/{cod} `Retorna as noticias cadastradas caso pesquise sem nenhum filtro, caso deseje filtrar colocar na rota o "id_noticia" que você deseja buscar`
+* GET /ApiNoticia/buscaCod/{id_noticia} `Retorna as noticias cadastradas, caso deseje filtrar utilizando o "id_noticia", deve colocar na rota o "id_noticia" que você deseja buscar`
 
 
-* GET /ApiNoticia/busca/?titulo=`Retorna as noticias cadastradas caso pesquise sem nenhum filtro na rota, caso deseje filtrar utilizando o "titulo" descrever na rota o comando informado na mesma,e após o  "titulo" a sua busca`
+* GET /ApiNoticia/busca/?titulo=`Retorna as noticias cadastradas, caso deseje filtrar utilizando o "titulo" descrever na rota o comando informado na mesma,e após o  "titulo" a sua busca`
 # Teste feito utilizando Codeigniter 3,HTML5, Javascript e Mysql 
 
 
