@@ -11,7 +11,7 @@ class CrudNoticia extends CI_Controller {
 
         
     }
-
+    //função que aponta para a view.
     public function index(){
         $this->load->view('crud_noticia');
     }
