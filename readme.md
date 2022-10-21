@@ -10,12 +10,11 @@
 
 3. Execute o seguinte comando `php index.php migrate`. Para que as tabelas sejam criadas para o teste.
 
-# Dados a serem enviado.
+# View.
 
-### Cadastro Notícias
+### CRUD Notícias
 
-* titulo_noticia  `Obrigátorio`
-* des_noticia  `Opcional`
+* Será uma view disponível para consumir as rotas.
 
 
 # Controllers
