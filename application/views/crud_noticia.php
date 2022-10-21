@@ -139,7 +139,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <div class="modal-content">
       <div class="modal-header">
         <h1 class="modal-title fs-5" id="modal_editLabel">Edita Notícia</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
       </div>
       <div class="modal-body">
 		<input type="hidden" value="" id="cod-noticia">
@@ -156,6 +156,30 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
         <button type="button" class="btn btn-primary" onClick="editar()">Alterar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal View -->
+<div class="modal fade" id="modal_view" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modal_viewLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="modal_viewLabel">Visualizar Notícia(<span id="cod-noticia-view"></span>)</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+	  	<div class="form-group">
+			<label for="titulo-noticia-view">Titulo da Notícia:</label>
+			<span type="text" class="form-control" id="titulo-noticia-view" name="titulo-noticia-view"></span>
+		</div>
+		<br>
+		<div>
+			<label for="desc-noticia-view">Descrição da Notícia:</label>
+			<br><br>
+			<span class="form-control" id="desc-noticia-view" name="desc-noticia-view"></span>
+		</div>
       </div>
     </div>
   </div>
@@ -183,7 +207,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		});
 	}
 
-	busca()
 	function busca(){
 			$.ajax({
 			type: "GET",
@@ -199,7 +222,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				for (let i = 0; i < dados.data.length; i++) {
 				table += "<tr>";
 					table += "<td><a href='#' onclick='consultaId(" + dados.data[i].id_noticia + ")'>Editar</a> | <a href='#' onclick='deletar(" + dados.data[i].id_noticia + ")'>Deletar</a></td>";
-					table += "<td>" + dados.data[i].id_noticia + "</td>";
+					table += "<td align='center'><a href='#' onclick='visualizaId(" + dados.data[i].id_noticia + ")'>" + dados.data[i].id_noticia + "</a></td>";
 					table += "<td>" + dados.data[i].titulo_noticia + "</td>";
 					table += "<td>" + dados.data[i].des_noticia + "</td>";
 				table += "</tr>";
@@ -209,6 +232,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		});
 	}
 
+	busca()
 	function deletar(dados){
 		$.ajax({
 			type: "DELETE",
@@ -239,6 +263,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				$('#cod-noticia').val(dados.data[0].id_noticia)
 				$('#titulo-noticia').val(dados.data[0].titulo_noticia)
 				$('#desc-noticia').val(dados.data[0].des_noticia)
+			}
+		
+		});
+	}
+
+	function visualizaId(id){
+		$("#modal_view").modal('show');
+
+		$.ajax({
+			type: "GET",
+			url: "<?=base_url()?>/ApiNoticia/buscaCod/"+ id,
+			dataType : "json",
+			error: function(request, status, errorThrown){
+			},
+			success: function(dados){
+				$('#cod-noticia-view').html(dados.data[0].id_noticia)
+				$('#titulo-noticia-view').html(dados.data[0].titulo_noticia)
+				$('#desc-noticia-view').html(dados.data[0].des_noticia)
 			}
 		});
 	}

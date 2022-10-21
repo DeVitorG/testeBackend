@@ -23,7 +23,7 @@
 * Responsável pelos métodos de `crud` das notícia 
 
 # Models And Tables
-*  ApiNoticia_model `Noticia`  
+*  ApiNoticia_model `cad_noticia`  
 
 
 # Rotas
