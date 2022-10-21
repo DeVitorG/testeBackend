@@ -13,11 +13,10 @@
 # Dados a serem enviado.
 
 ### Cadastro Notícias
-* id_noticia  `Obrigátorio`
+
 * titulo_noticia  `Obrigátorio`
 * des_noticia  `Opcional`
-* dta_cadastro  `Obrigátorio`
-* dta_upd_noticia  `Opcional`
+
 
 # Controllers
 ## ApiNoticia
